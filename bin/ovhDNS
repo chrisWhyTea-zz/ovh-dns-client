@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var appPackage = require('../package');
+var _ = require('lodash');
+var validator = require('validator');
+var helper = require('../helper');
+
+program
+    .version(appPackage.name + ' ' + appPackage.version + ' by ' + appPackage.author)
+    //.command('zones', 'Lists DNS-Zones you can manage')
+    .command('records [zone]', 'List all records')
+    .command('create [zone] [subdomain] [fieldType] [target]', 'Create a new DNS Record')
+    .parse(process.argv);

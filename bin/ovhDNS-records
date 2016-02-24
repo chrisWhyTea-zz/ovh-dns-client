@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var appPackage = require('../package');
+var _ = require('lodash');
+var validator = require('validator');
+var helper = require('../helper');
+
+program
+
+    .description('Use "https://goo.gl/BCSXMH" to get the ApplicationKey, ApplicationSecret and ConsumerKey')
+    //.description('Use "https://api.ovh.com/createToken/?GET=/domain/zone/*&POST=/domain/zone/*&PUT=/domain/zone/*&DELETE=/domain/zone/*" to get the ApplicationKey, ApplicationSecret and ConsumerKey')
+    .option('-E, --endpoint [endpoint]', 'API Endpoint (Possible Endpoints : "ovh-eu","ovh-ca" Default is "ovh-eu"', 'ovh-eu')
+    .option('-K, --applicationKey [key]', 'The Application Key provided by OVH')
+    .option('-S, --applicationSecret [secret]', 'The Application Secret Key provided by OVH')
+    .option('-C, --consumerKey [consumerKey]', 'The Consumer-Key provided by OVH')
+    .parse(process.argv);
+
+var config = helper.inputValidateAndSetConfig(program);
+
+var api = require('../api')(config);
+
+if (program.args.length() !== 1) {
+    console.log("Not enough arguments, 'zone' is required")
+} else {
+    api.listRecords(program.args[0], function (err, records) {
+        console.log(records);
+    });
+}
