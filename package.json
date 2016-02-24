@@ -1,9 +1,10 @@
 {
   "name": "ovh-dns-client",
   "version": "0.0.1",
-  "description": "Easy to use DNS Editing tool fo platforms using a REST API",
+  "description": "Easy to use DNS Editing tool for OVH DNS",
   "author": "Christopher Schmitt <me@chris.yt>",
   "license": "MIT",
+  "repository": "https://github.com/chrisWhyTea/ovh-dns-client",
   "dependencies": {
     "async": "^1.5.2",
     "commander": "^2.9.0",
