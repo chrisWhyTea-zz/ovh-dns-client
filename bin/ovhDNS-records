@@ -20,7 +20,7 @@ var config = helper.inputValidateAndSetConfig(program);
 
 var api = require('../api')(config);
 
-if (program.args.length() !== 1) {
+if (program.args.length !== 1) {
     console.log("Not enough arguments, 'zone' is required")
 } else {
     api.listRecords(program.args[0], function (err, records) {

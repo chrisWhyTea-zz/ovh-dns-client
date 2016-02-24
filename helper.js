@@ -5,15 +5,15 @@ module.exports = {
 
         // Whoo this is my Lucky day, there are Credentials inside the ENV lets use them ^, yay!)
         if (process.env.OVH_DNS_APP_KEY) {
-            program.applicationKey = process.env.OVH_APP_KEY;
+            program.applicationKey = process.env.OVH_DNS_APP_KEY;
         }
 
         if (process.env.OVH_DNS_APP_SECRET) {
-            program.applicationSecret = process.env.OVH_APP_SECRET;
+            program.applicationSecret = process.env.OVH_DNS_APP_SECRET;
         }
 
         if (process.env.OVH_DNS_CONSUMER_KEY) {
-            program.consumerKey = process.env.OVH_CONSUMER_KEY;
+            program.consumerKey = process.env.OVH_DNS_CONSUMER_KEY;
         }
 
         if (!program.applicationKey || !validator.isAlphanumeric(program.applicationKey)) {
