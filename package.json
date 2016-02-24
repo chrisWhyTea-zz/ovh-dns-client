@@ -16,5 +16,5 @@
     "ovhDNS": "./bin/ovhDNS",
     "ovhDNS-create": "./bin/ovhDNS-create",
     "ovhDNS-records": "./bin/ovhDNS-records"
-  },
+  }
 }
