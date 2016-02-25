@@ -38,3 +38,9 @@ And you can add a dns-record to a zone/domain
 ovhDNS create address.xyz "" TXT "A test record"
 ```
 allowed fieldTypes are : "TXT","CNAME","MX","A" and "AAAA"
+
+#ToDo
+- Add delete 
+- Add Option to just write the whole URL instead of seperate subDomain and Domain (for a much easyer hook creation for letsencryt.sh dns-01 challange)
+-Write Tests and use Continious Integration
+-Write a better ReadMe
