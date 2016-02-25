@@ -1,12 +1,13 @@
 {
   "name": "ovh-dns-client",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Easy to use DNS Editing tool for OVH DNS",
   "author": "Christopher Schmitt <me@chris.yt>",
   "license": "MIT",
   "repository": "https://github.com/chrisWhyTea/ovh-dns-client",
   "dependencies": {
     "async": "^1.5.2",
+    "cli-table": "^0.3.1",
     "commander": "^2.9.0",
     "lodash": "^4.5.1",
     "ovh": "^1.1.3",

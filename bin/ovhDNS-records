@@ -5,6 +5,7 @@ var appPackage = require('../package');
 var _ = require('lodash');
 var validator = require('validator');
 var helper = require('../helper');
+var Table = require('cli-table');
 
 program
 
@@ -14,6 +15,7 @@ program
     .option('-K, --applicationKey [key]', 'The Application Key provided by OVH')
     .option('-S, --applicationSecret [secret]', 'The Application Secret Key provided by OVH')
     .option('-C, --consumerKey [consumerKey]', 'The Consumer-Key provided by OVH')
+    .option('-t, --table', 'Show the Result as Table')
     .parse(process.argv);
 
 var config = helper.inputValidateAndSetConfig(program);
@@ -24,6 +26,21 @@ if (program.args.length !== 1) {
     console.log("Not enough arguments, 'zone' is required")
 } else {
     api.listRecords(program.args[0], function (err, records) {
-        console.log(records);
+        if (!err) {
+            if (program.table) {
+                var table = new Table({
+                    head: ['ID', 'Zone', 'SubDomain', 'FieldType', 'Target']
+                });
+                _.each(records, function (record) {
+                    table.push([record.id, record.zone, record.subDomain, record.fieldType, record.target]);
+                });
+
+                console.log(table.toString());
+            } else {
+                console.log(records);
+            }
+        } else {
+            console.error(err);
+        }
     });
 }

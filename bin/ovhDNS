@@ -11,4 +11,5 @@ program
     //.command('zones', 'Lists DNS-Zones you can manage')
     .command('records [zone]', 'List all records')
     .command('create [zone] [subdomain] [fieldType] [target]', 'Create a new DNS Record')
+    .command('delete [zone] [subdomain] [fieldType] [target]', 'Create a new DNS Record')
     .parse(process.argv);

@@ -5,18 +5,16 @@ var appPackage = require('../package');
 var _ = require('lodash');
 var validator = require('validator');
 var helper = require('../helper');
-var Table = require('cli-table');
 
 program
 
     .description('Use "https://goo.gl/BCSXMH" to get the ApplicationKey, ApplicationSecret and ConsumerKey')
-    .usage('[zone] [subdomain] [fieldType] [target]')
+    .usage('[zone] [subdomain] [fieldType] [target] to delete a record with the given credentials')
     //.description('Use "https://api.ovh.com/createToken/?GET=/domain/zone/*&POST=/domain/zone/*&PUT=/domain/zone/*&DELETE=/domain/zone/*" to get the ApplicationKey, ApplicationSecret and ConsumerKey')
     .option('-E, --endpoint [endpoint]', 'API Endpoint (Possible Endpoints : "ovh-eu","ovh-ca" Default is "ovh-eu"', 'ovh-eu')
     .option('-K, --applicationKey [key]', 'The Application Key provided by OVH')
     .option('-S, --applicationSecret [secret]', 'The Application Secret Key provided by OVH')
     .option('-C, --consumerKey [consumerKey]', 'The Consumer-Key provided by OVH')
-    .option('-t, --table', 'Show the Result as Table')
     .parse(process.argv);
 
 var config = helper.inputValidateAndSetConfig(program);
@@ -26,7 +24,8 @@ var api = require('../api')(config);
 if (program.args.length !== 4) {
     console.log("Not enough arguments 'zone','subdomain','fieldType','target' are required")
 } else {
-    api.createRecord(
+
+    api.deleteRecordByContent(
         program.args[0],
         program.args[1],
         program.args[2],
@@ -35,15 +34,7 @@ if (program.args.length !== 4) {
             if (err) {
                 console.error(err);
             } else {
-                if (program.table) {
-                    var table = new Table({
-                        head: ['ID', 'Zone', 'SubDomain', 'FieldType', 'Target']
-                    });
-                    table.push([record.id, record.zone, record.subDomain, record.fieldType, record.target]);
-                    console.log(table.toString());
-                } else {
-                    console.log(record);
-                }
+                console.log('Record Deleted');
             }
         });
 }

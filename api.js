@@ -34,7 +34,7 @@ module.exports = function (config) {
         });
     };
 
-    var createRecord = function listRecords(zone, subDomain, fieldType, target, callback) {
+    var createRecord = function createRecord(zone, subDomain, fieldType, target, callback) {
         // For validation
         listZones(function (err, zones) {
 
@@ -53,11 +53,39 @@ module.exports = function (config) {
         });
     };
 
+    var deleteRecord = function deleteRecord(zone, id,callback) {
+        listZones(function (err, zones) {
+            if (!_.includes(zones, zone)) {
+                return callback('Zone "' + zone + '" not found.', null);
+            }
+            ovh.request('DELETE', '/domain/zone/' + zone + '/record/'+id, callback);
+
+        });
+    };
+
+    var deleteRecordByContent = function deleteRecordByContent(zone, subDomain, fieldType, target, callback) {
+        listRecords(zone, function (err, records) {
+            var toDeleteRecord = _.find(records, {
+                fieldType: fieldType,
+                zone: zone,
+                subDomain: subDomain,
+                target: target
+            });
+
+            if (toDeleteRecord) {
+                deleteRecord(zone, toDeleteRecord.id, callback);
+            } else {
+                return callback('Record not found, nothing to delete', null);
+            }
+        });
+    };
+
     return {
         listZones: listZones,
         getRecord: getRecord,
         listRecords: listRecords,
-        createRecord: createRecord
+        createRecord: createRecord,
+        deleteRecordByContent: deleteRecordByContent
     }
 
 };
