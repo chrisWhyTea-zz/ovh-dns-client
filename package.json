@@ -1,6 +1,6 @@
 {
   "name": "ovh-dns-client",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Easy to use DNS Editing tool for OVH DNS",
   "author": "Christopher Schmitt <me@chris.yt>",
   "license": "MIT",
@@ -16,6 +16,7 @@
   "bin": {
     "ovhDNS": "./bin/ovhDNS",
     "ovhDNS-create": "./bin/ovhDNS-create",
-    "ovhDNS-records": "./bin/ovhDNS-records"
+    "ovhDNS-records": "./bin/ovhDNS-records",
+    "ovhDNS-delete": "./bin/ovhDNS-delete"
   }
 }
