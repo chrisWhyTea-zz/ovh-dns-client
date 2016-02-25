@@ -1,6 +1,6 @@
 {
   "name": "ovh-dns-client",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Easy to use DNS Editing tool for OVH DNS",
   "author": "Christopher Schmitt <me@chris.yt>",
   "license": "MIT",
