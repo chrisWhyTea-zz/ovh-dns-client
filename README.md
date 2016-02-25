@@ -35,7 +35,7 @@ ovhDNS records adress.xyz
 If you want some beautified output, add '-t' to get a table view output like this:
 ```
 # If you want to get the records of the 'adress.xyz' Zone/Domain
-ovhDNS records adress.xyz
+ovhDNS records adress.xyz -t
 
 ┌────────────┬────────────┬───────────┬───────────┬───────────────┐
 │ ID         │ Zone       │ SubDomain │ FieldType │ Target        │
