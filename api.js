@@ -80,12 +80,23 @@ module.exports = function (config) {
         });
     };
 
+    var refreshZone = function refreshZone(zone, callback) {
+        listZones(function (err, zones) {
+            if (!_.includes(zones, zone)) {
+                return callback('Zone "' + zone + '" not found.', null);
+            }
+            ovh.request('POST', '/domain/zone/' + zone + '/refresh', callback);
+
+        });
+    };
+
     return {
         listZones: listZones,
         getRecord: getRecord,
         listRecords: listRecords,
         createRecord: createRecord,
-        deleteRecordByContent: deleteRecordByContent
+        deleteRecordByContent: deleteRecordByContent,
+        refreshZone: refreshZone
     }
 
 };

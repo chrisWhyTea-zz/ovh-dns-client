@@ -35,15 +35,21 @@ if (program.args.length !== 4) {
             if (err) {
                 console.error(err);
             } else {
-                if (program.table) {
-                    var table = new Table({
-                        head: ['ID', 'Zone', 'SubDomain', 'FieldType', 'Target']
-                    });
-                    table.push([record.id, record.zone, record.subDomain, record.fieldType, record.target]);
-                    console.log(table.toString());
-                } else {
-                    console.log(record);
-                }
+                api.refreshZone(program.args[0], function (err) {
+                    if (!err) {
+                        if (program.table) {
+                            var table = new Table({
+                                head: ['ID', 'Zone', 'SubDomain', 'FieldType', 'Target']
+                            });
+                            table.push([record.id, record.zone, record.subDomain, record.fieldType, record.target]);
+                            console.log(table.toString());
+                        } else {
+                            console.log(record);
+                        }
+                    } else {
+                        console.error(err)
+                    }
+                });
             }
         });
 }
