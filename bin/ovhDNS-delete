@@ -34,13 +34,7 @@ if (program.args.length !== 4) {
             if (err) {
                 console.error(err);
             } else {
-                api.refreshZone(program.args[0], function (err) {
-                    if (!err) {
-                        console.log('Record Deleted');
-                    }else{
-                        console.log(err);
-                    }
-                });
+                console.log('Record Deleted');
             }
         });
 }
