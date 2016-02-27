@@ -1,7 +1,7 @@
 # ovh-dns-client
 
 [![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
+[![NPM Downloads][downloads-image]][npm-url]
 
 A easy to use CLI-Client for OVH DNS Service... Just install it, get API Credentials 
 
