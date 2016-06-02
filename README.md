@@ -3,7 +3,7 @@
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][npm-url]
 
-A easy to use CLI-Client for OVH DNS Service... Just install it, get API Credentials 
+A easy to use CLI-Client for OVH DNS Service... Just install it and get API Credentials 
 
 ##How To Setup
 
@@ -67,16 +67,14 @@ Beware if you have multipe records with exactly the same data and you want to de
 - Add Option to just write the whole URL instead of seperate subDomain and Domain (for a much easyer hook creation for letsencryt.sh dns-01 challange)
 
 -Write Tests and use Continious Integration
-
 -Write a better ReadMe
-
-<<<<<<< Updated upstream
+- Updated upstream
 - Commented code? uhmmm.. okay but only because no one was asking nicely...
-
-- Dryout the code... the is a lot of repeating stuff...
+- Dryout the code... there is a lot of repeating stuff...
+- Deal with the 30min forced delay between commands from OVH... makes using ovh-dns-client together with letsencrypt.sh reaaaallly slow... 
 =======
 
 [downloads-image]: https://img.shields.io/npm/dm/ovh-dns-client.svg
 [npm-url]: https://www.npmjs.com/package/ovh-dns-client
 [npm-image]: https://img.shields.io/npm/v/ovh-dns-client.svg
->>>>>>> Stashed changes
+
