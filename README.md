@@ -65,9 +65,8 @@ Beware if you have multipe records with exactly the same data and you want to de
 
 #ToDo
 - Add Option to just write the whole URL instead of seperate subDomain and Domain (for a much easyer hook creation for letsencryt.sh dns-01 challange)
-
--Write Tests and use Continious Integration
--Write a better ReadMe
+- Write Tests and use Continious Integration
+- Write a better ReadMe
 - Updated upstream
 - Commented code? uhmmm.. okay but only because no one was asking nicely...
 - Dryout the code... there is a lot of repeating stuff...
